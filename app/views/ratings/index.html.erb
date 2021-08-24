@@ -1,0 +1,174 @@
+<ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/restrooms">Reviews</a></li>
+       <li><a href="/user_sign_out">Sign Out</a></li>
+</ul>
+
+<hr>
+
+<div>
+  <div>
+    <h1>
+      List of all ratings
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new rating
+    </h2>
+
+    <form action="/insert_rating" method="post">
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id">
+      </div>
+
+      <div>
+        <label for="restroom_id_box">
+          Restroom
+        </label>
+
+        <input type="text" id="restroom_id_box" name="query_restroom_id">
+      </div>
+
+      <div>
+        <label for="score_box">
+          Score
+        </label>
+
+        <input type="text" id="score_box" name="query_score">
+      </div>
+
+      <div>
+        <label for="review_notes_box">
+          Review notes
+        </label>
+
+        <textarea id="review_notes_box" name="query_review_notes" rows="3"></textarea>
+      </div>
+
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name">
+      </div>
+
+      <div>
+        <label for="location_box">
+          Location
+        </label>
+
+        <input type="text" id="location_box" name="query_location">
+      </div>
+
+      <button>
+        Create rating
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table>
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          User
+        </th>
+
+        <th>
+          Restroom
+        </th>
+
+        <th>
+          Score
+        </th>
+
+        <th>
+          Review notes
+        </th>
+
+        <th>
+          Name
+        </th>
+
+        <th>
+          Location
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_ratings.each do |a_rating| %>
+      <tr>
+        <td>
+          <%= a_rating.id %>
+        </td>
+
+        <td>
+          <%= a_rating.user_id %>
+        </td>
+
+        <td>
+          <%= a_rating.restroom_id %>
+        </td>
+
+        <td>
+          <%= a_rating.score %>
+        </td>
+
+        <td>
+          <%= a_rating.review_notes %>
+        </td>
+
+        <td>
+          <%= a_rating.name %>
+        </td>
+
+        <td>
+          <%= a_rating.location %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_rating.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_rating.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/ratings/<%= a_rating.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

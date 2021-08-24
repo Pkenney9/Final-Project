@@ -1,0 +1,116 @@
+<div>
+  <div>
+    <h1>
+      Restroom #<%= @the_restroom.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/restrooms">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_restroom/<%= @the_restroom.id %>">
+          Delete restroom
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Name
+      </dt>
+      <dd>
+        <%= @the_restroom.name %>
+      </dd>
+
+      <dt>
+        Location
+      </dt>
+      <dd>
+        <%= @the_restroom.location %>
+      </dd>
+
+      <dt>
+        Score
+      </dt>
+      <dd>
+        <%= @the_restroom.score %>
+      </dd>
+
+      <dt>
+        Review notes
+      </dt>
+      <dd>
+        <%= @the_restroom.review_notes %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_restroom.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_restroom.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit restroom
+    </h2>
+
+    <form action="/modify_restroom/<%= @the_restroom.id %>"  method="post" >
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name" value="<%= @the_restroom.name %>">
+      </div>
+
+      <div>
+        <label for="location_box">
+          Location
+        </label>
+
+        <input type="text" id="location_box" name="query_location" value="<%= @the_restroom.location %>">
+      </div>
+
+      <div>
+        <label for="score_box">
+          Score
+        </label>
+
+        <input type="text" id="score_box" name="query_score" value="<%= @the_restroom.score %>">
+      </div>
+
+      <div>
+        <label for="review_notes_box">
+          Review notes
+        </label>
+
+        <textarea id="review_notes_box" name="query_review_notes"><%= @the_restroom.review_notes %></textarea>
+      </div>
+
+      <button>
+        Update restroom
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
