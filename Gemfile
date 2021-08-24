@@ -14,6 +14,8 @@ gem 'sprockets', '< 4'
 gem 'sassc-rails'
 
 gem 'faker'
+gem "mailgun-ruby"
+gem 'ransack'
 
 group :development do
   gem 'listen', '~> 3.2'

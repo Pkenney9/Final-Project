@@ -1,6 +1,5 @@
 <ul>
       <li><a href="/">Home</a></li>
-      <li><a href="/ratings">Create a Rating</a></li>
        <li><a href="/user_sign_out">Sign Out</a></li>
 </ul>
 
@@ -16,7 +15,7 @@
     <form action="/insert_restroom" method="post">
       <div>
         <label for="name_box">
-          Name
+          Restroom Name
         </label>
 
         <input type="text" id="name_box" name="query_name">
@@ -24,7 +23,7 @@
 
       <div>
         <label for="location_box">
-          Location
+          Location Name
         </label>
 
         <input type="text" id="location_box" name="query_location">
@@ -32,7 +31,7 @@
 
       <div>
         <label for="score_box">
-          Score
+          Score out of 5
         </label>
 
         <input type="text" id="score_box" name="query_score">
@@ -54,6 +53,30 @@
 </div>
 
 <hr>
+<hr>
+
+<%= search_form_for @q do |f| %>
+  <p>Narrow results:</p>
+
+  <div>
+    <%= f.label :name_cont, "name containing" %>
+    <%= f.text_field :name_cont, :placeholder => "Enter a few characters" %>
+  </div>
+
+  <div>
+    <%= f.label :location_cont, "location containing" %>
+    <%= f.text_field :location_cont, :placeholder => "Year greater than or equal to" %>
+  </div>
+
+  <div>
+    <%= f.label :score_gteq, "Score above" %>
+    <%= f.text_field :score_gteq, :placeholder => "Score greater than or equal to" %>
+  </div>
+
+  <%= f.submit :class => "btn btn-primary btn-block" %>
+  
+  <a href="/reviews">Clear filters</a>
+<% end %>
 
 <div>
   <div>

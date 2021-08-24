@@ -1,5 +1,9 @@
 class RestroomsController < ApplicationController
   def index
+
+    @q = Restroom.ransack(params[:q])
+    @the_restroom = @q.result
+   
     matching_restrooms = Restroom.all
 
     @list_of_restrooms = matching_restrooms.order({ :created_at => :desc })
