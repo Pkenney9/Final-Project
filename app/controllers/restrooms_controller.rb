@@ -4,7 +4,7 @@ class RestroomsController < ApplicationController
     @q = Restroom.ransack(params[:q])
     @the_restroom = @q.result
    
-    matching_restrooms = Restroom.all
+    matching_restrooms = @q.result
 
     @list_of_restrooms = matching_restrooms.order({ :created_at => :desc })
 
