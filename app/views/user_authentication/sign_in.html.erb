@@ -1,13 +1,34 @@
-<h1>Welcome Back! Please sign in below.</h1>
+<!DOCTYPE html>
+<html>
+      
+      <style>
+      h1 {
+      color: white;
+      }
 
+      div.a {
+       text-align: center;
+       background-color: navy;
+       font-family: Arial, Helvetica, sans-serif;
+      }
+
+     div.c {
+      text-align: center;
+      }
+
+      </style>
+
+<div class="a">
+<h1>Welcome back! Please sign in below.</h1>
+</div>
 <form action="/user_verify_credentials" method="post">
   <div>
-    <label for="email_box">Email</label>
+    <label for="email_box"><strong>Email</strong></label>
     <input id="email_box" name="query_email" placeholder="Enter your email..." type="text">
   </div>
 
   <div>
-    <label for="password_box">Password</label>
+    <label for="password_box"><strong>Password</strong></label>
     <input id="password_box" name="query_password" placeholder="Enter your password..." type="password">
   </div>
 
@@ -19,5 +40,11 @@
 <hr>
 
 <p>
-  Or, <a href="/user_sign_up">Sign up</a> instead.
+  <em>Or, <a href="/user_sign_up">Sign up</a> instead</em>.
 </p>
+
+  <div class="c">
+  <img src= "https://assets3.thrillist.com/v1/image/1856875/1000x666.6666666666666/flatten;crop;jpeg_quality=70">
+  </div>
+
+</html>

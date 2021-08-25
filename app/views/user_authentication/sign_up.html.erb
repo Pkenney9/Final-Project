@@ -1,25 +1,47 @@
-<h1>Welcome! If you're interested in joining our network of bathroom reviewers, sign up below!</h1>
+<!DOCTYPE html>
+<html>
+      
+      <style>
+      h2 {
+      color: white;
+      }
+
+      div.a {
+       text-align: center;
+       background-color: navy;
+       font-family: Arial, Helvetica, sans-serif;
+      }
+
+      div.c {
+      text-align: center;
+      }
+
+      </style>
+
+<div class="a">
+<h2>Welcome! If you're interested in joining our network of bathroom reviewers, sign up below!</h2>
+</div>
 
 <form action="/insert_user" method="post">
 
   <div>
-    <label for="email_box">Email</label>
+    <label for="email_box"><strong>Email</strong></label>
     <input id="email_box" name="query_email" placeholder="Choose a email..." type="text">
   </div>
                  
   <div>
-    <label for="name_box">Name</label>
+    <label for="name_box"><strong>Name</strong></label>
       
     <input type="text" id="name_box" name="query_name" placeholder="Put your name here...">
   </div>
     
   <div>
-    <label for="password_box">Password</label>
+    <label for="password_box"><strong>Password</strong></label>
     <input id="password_box" name="query_password" placeholder="Choose a password..." type="password">
   </div>
 
   <div>
-    <label for="password_confirmation_box">Password Confirmation</label>
+    <label for="password_confirmation_box"><strong>Password Confirmation</strong></label>
     <input id="password_confirmation_box" name="query_password_confirmation" placeholder="Confirm your password..." type="password">
   </div>
 
@@ -31,5 +53,12 @@
 <hr>
 
 <p>
-  Or, <a href="/user_sign_in">Sign in</a> instead.
+  <em>Or, <a href="/user_sign_in">Sign in</a> instead</em>.
 </p>
+
+  <div class="c">
+  <img src= "https://assets3.thrillist.com/v1/image/1856875/1000x666.6666666666666/flatten;crop;jpeg_quality=70">
+  </div>
+
+
+</html>

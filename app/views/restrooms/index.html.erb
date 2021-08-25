@@ -1,33 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+   <style>
+      h1 {
+      color: white;
+      }
+
+      div.a {
+  text-align: center;
+  background-color: navy;
+  font-family: Arial, Helvetica, sans-serif;
+      }
+
+      table, td, th {
+  border: 1px solid black;
+      }
+
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      td {
+        text-align: center;
+      }
+
+    .p2 {
+    font-family: Arial, Helvetica, sans-serif;
+    }
+
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #333;
+    }
+
+    li {
+      float: left;
+    }
+
+    li a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    li a:hover:not(.active) {
+      background-color: #111;
+    }
+
+    .active {
+      background-color: #04AA6D;
+    }
+
+  </style>
+
+
 <ul>
       <li><a href="/">Home</a></li>
-       <li><a href="/user_sign_out">Sign Out</a></li>
+      <li><a href="/user_sign_out">Sign Out</a></li>
 </ul>
 
 <hr>
 
 <table border="1">
 <div>
-  <div>
-    <h1>
-      Add a new restroom
-    </h1>
+  <div class="a">
+     <h1>Add a new restroom</h1>
+  </div>
 
     <form action="/insert_restroom" method="post">
+      
+      <div>
+        <label for="location_box">
+          Physical Bathroom Location
+        </label>
+
+        <input type="text" id="location_box" name="query_location">
+      </div>      
+      
       <div>
         <label for="name_box">
-          Restroom Name
+          Restroom Used
         </label>
 
         <input type="text" id="name_box" name="query_name">
       </div>
 
-      <div>
-        <label for="location_box">
-          Location Name
-        </label>
-
-        <input type="text" id="location_box" name="query_location">
-      </div>
 
       <div>
         <label for="score_box">
@@ -55,16 +118,18 @@
 <hr>
 
 <%= search_form_for @q do |f| %>
-  <p>Narrow results:</p>
-
-  <div>
-    <%= f.label :name_cont, "name containing" %>
-    <%= f.text_field :name_cont, :placeholder => "Enter a few characters" %>
+  <div class="a">
+    <h1><p>Narrow results...</p></h1>
   </div>
 
   <div>
-    <%= f.label :location_cont, "location containing" %>
+    <%= f.label :location_cont, "Physical Location Containing" %>
     <%= f.text_field :location_cont, :placeholder => "Year greater than or equal to" %>
+  </div>
+
+  <div>
+    <%= f.label :name_cont, "Restroom Used Containing" %>
+    <%= f.text_field :name_cont, :placeholder => "Enter a few characters" %>
   </div>
 
   <div>
@@ -78,14 +143,13 @@
 <% end %>
 
 <div>
-  <div>
+  <div class="a">
     <h1>
-      List of all restrooms
+      List of all restrooms reviewed
     </h1>
   </div>
 </div>
 
-<hr>
 <div>
   <div>
     <table border="1">
@@ -95,11 +159,11 @@
         </th>
 
         <th>
-          Name
+          Physical Location Name
         </th>
 
         <th>
-          Location
+          Restroom Used
         </th>
 
         <th>
@@ -127,13 +191,13 @@
         <td>
           <%= a_restroom.id %>
         </td>
-
-        <td>
-          <%= a_restroom.name %>
-        </td>
-
+       
         <td>
           <%= a_restroom.location %>
+        </td>
+        
+        <td>
+          <%= a_restroom.name %>
         </td>
 
         <td>
@@ -164,3 +228,4 @@
 </table>
 
 <hr>
+</html>

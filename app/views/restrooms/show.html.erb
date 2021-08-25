@@ -1,98 +1,179 @@
+<!DOCTYPE html>
+<html>
+      
+      <style>
+      h1 {
+      color: white;
+      }
+
+      h2 {
+      color: maroon;
+      }
+
+      div.a {
+  text-align: center;
+  background-color: navy;
+  font-family: Arial, Helvetica, sans-serif;
+      }
+
+      table, td, th {
+  border: 1px solid black;
+      }
+
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      td {
+        text-align: center;
+      }
+
+      .p2 {
+  font-family: Arial, Helvetica, sans-serif;
+      }
+
+          ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #333;
+    }
+
+    li {
+      float: left;
+    }
+
+    li a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    li a:hover:not(.active) {
+      background-color: #111;
+    }
+
+    .active {
+      background-color: #04AA6D;
+    }
+
+      </style>
+
+
+<ul>
+      <li><a href="/">Home</a></li>
+       <li><a href="/restrooms">Go Back</a></li>
+      <li><a href="/user_sign_out">Sign Out</a></li>
+</ul>
+
+
 <div>
   <div>
+    <div class="a">
     <h1>
-      Restroom #<%= @the_restroom.id %> details
+      <p class="p2">Restroom #<%= @the_restroom.id %> details</p>
     </h1>
+    </div>
+
+  <table border = 1>
+    <tr>
+    <dl>
+      <th>
+        Physical Location
+      </th>
+      
+      <th>
+        Restroom Used
+      </th>
+
+      <th>
+        Score (Out of 5)
+      </th>
+
+      <th>
+        Review notes
+      </th>
+
+      <th>
+        Created at
+      </th>
+
+      <th>
+        Updated at
+      </th>
+      </tr>
+    
+    <tr>
+
+      <td>
+        <%= @the_restroom.location %>
+      </td>
+      
+      <td>
+        <%= @the_restroom.name %>
+      </td>
+      
+      <td>
+        <%= @the_restroom.score %>
+      </td>
+
+      <td>
+        <%= @the_restroom.review_notes %>
+      </td>
+
+      <td>
+        <%= time_ago_in_words(@the_restroom.created_at) %> ago
+      </td>
+
+      <td>
+        <%= time_ago_in_words(@the_restroom.updated_at) %> ago
+      </td>
+
+    </tr>
+    </table>
+    </dl>
+  </div>
+</div>
 
     <div>
-      <div>
-        <a href="/restrooms">
-          Go back
-        </a>
-      </div>
-
-      <div>
         <a href="/delete_restroom/<%= @the_restroom.id %>">
           Delete restroom
         </a>
       </div>
     </div>
-
-    <dl>
-      <dt>
-        Name
-      </dt>
-      <dd>
-        <%= @the_restroom.name %>
-      </dd>
-
-      <dt>
-        Location
-      </dt>
-      <dd>
-        <%= @the_restroom.location %>
-      </dd>
-
-      <dt>
-        Score
-      </dt>
-      <dd>
-        <%= @the_restroom.score %>
-      </dd>
-
-      <dt>
-        Review notes
-      </dt>
-      <dd>
-        <%= @the_restroom.review_notes %>
-      </dd>
-
-      <dt>
-        Created at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_restroom.created_at) %> ago
-      </dd>
-
-      <dt>
-        Updated at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_restroom.updated_at) %> ago
-      </dd>
-    </dl>
-  </div>
-</div>
-
 <hr>
 
 
 <div>
   <div>
-    <h2>
-      Edit restroom
-    </h2>
+    <div class="a">
+    <p class="p2"><h1>Edit restroom</h1></p>
+    </div>
 
     <form action="/modify_restroom/<%= @the_restroom.id %>"  method="post" >
       <div>
-        <label for="name_box">
-          Name
-        </label>
-
-        <input type="text" id="name_box" name="query_name" value="<%= @the_restroom.name %>">
-      </div>
-
-      <div>
         <label for="location_box">
-          Location
+          Physical Location
         </label>
 
         <input type="text" id="location_box" name="query_location" value="<%= @the_restroom.location %>">
       </div>
 
       <div>
+        <label for="name_box">
+          Restroom Used
+        </label>
+
+        <input type="text" id="name_box" name="query_name" value="<%= @the_restroom.name %>">
+      </div>
+
+      <div>
         <label for="score_box">
-          Score
+          Score (Out of 5)
         </label>
 
         <input type="text" id="score_box" name="query_score" value="<%= @the_restroom.score %>">
@@ -114,3 +195,4 @@
 </div>
 
 <hr>
+</html>
